@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { navlinks } from "../constant";
 
 import { useStateContext } from "../context";
+import { capitalize } from "../utils";
 import Icon from "./Icon";
 
 const MapLinks = ({ navbar, onClick = () => {} }) => {
@@ -18,7 +19,7 @@ const MapLinks = ({ navbar, onClick = () => {} }) => {
       const [activePage] = navlinks.filter(
         item => item.link === location.pathname
       );
-      return activePage.name || "dashboard";
+      return activePage?.name || "dashboard";
     });
   }, []);
 
@@ -62,7 +63,7 @@ const MapLinks = ({ navbar, onClick = () => {} }) => {
                   className={`ml-[20px] font-epilogue font-semibold text-[14px] ${
                     isActive === link.name ? "text-[#1dc071]" : "text-[#808191]"
                   }`}>
-                  {link.name}
+                  {capitalize(link.name)}
                 </p>
               </li>
             );
