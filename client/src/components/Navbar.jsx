@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { CustomButton } from "./";
+import { CustomButton, MapLinks } from "./";
 
 import { useStateContext } from "../context";
 import { logo, menu, search, thirdweb } from "../assets";
@@ -10,8 +10,6 @@ import { navlinks } from "../constant";
 
 const Navbar = () => {
   const navigate = useNavigate();
-
-  const [isActive, setIsActive] = React.useState("dashboard");
 
   const [toggleDrawer, setToggleDrawer] = React.useState(false);
 
@@ -86,36 +84,12 @@ const Navbar = () => {
             toggleDrawer ? "translate-y-0" : "-translate-y-[100vh]"
           } transition-all duration-700`}>
           <ul className="mb-4">
-            {navlinks.map(item => {
-              return (
-                <li
-                  key={item.name}
-                  className={`flex p-4 ${
-                    isActive === item.name && "bg-[#3a3a43]"
-                  }  cursor-pointer`}
-                  onClick={() => {
-                    setIsActive(item.name);
-                    setToggleDrawer(false);
-                    navigate(item.link);
-                  }}>
-                  <img
-                    src={item.imgUrl}
-                    alt={item.name}
-                    className={`w-[24px] h-[24px] object-contain ${
-                      isActive === item.name ? "grayscale-0" : "grayscale"
-                    }`}
-                  />
-                  <p
-                    className={`ml-[20px] font-epilogue font-semibold text-[14px] ${
-                      isActive === item.name
-                        ? "text-[#1dc071]"
-                        : "text-[#808191]"
-                    }`}>
-                    {item.name}
-                  </p>
-                </li>
-              );
-            })}
+            <MapLinks
+              navbar
+              onClick={() => {
+                setToggleDrawer(false);
+              }}
+            />
           </ul>
 
           <div className="flex mx-4">

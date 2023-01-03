@@ -5,6 +5,7 @@ import { Navbar, Sidebar } from "./components";
 import { Home, CreateCampaign, CampaignDetails, Profile } from "./pages";
 
 const App = () => {
+  // console.log(config);
   return (
     <div className="relative sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
       <div className="sm:flex hidden mr-10 relative">

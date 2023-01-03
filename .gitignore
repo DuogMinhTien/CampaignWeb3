@@ -28,6 +28,7 @@
 /client/.pnpm-debug.log*
 
 # local env files
+/client/.env
 /client/.env*.local
 /blockchainweb3/.env*.local
 
@@ -41,3 +42,4 @@
 /blockchainweb3/.husky
 /blockchainweb3/.vs
 /blockchainweb3/.vscode
+node_modules

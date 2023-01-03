@@ -39,6 +39,9 @@ export const navlinks = [
     name: "logout",
     imgUrl: logout,
     link: "/",
-    disabled: true,
+    hasFunction: true,
+    // disabled: true,
   },
 ];
+
+export const addressContract = "0x5d4633dEB144D2D6f89f209cC95e1D8ECC5CA91B";

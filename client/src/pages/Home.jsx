@@ -5,7 +5,7 @@ import { useStateContext } from "../context";
 import { DisplayCampaigns } from "../components";
 
 const Home = () => {
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
   const [campaigns, setCampaigns] = React.useState([]);
 
   const { address, contract, getCampaigns } = useStateContext();
@@ -15,8 +15,6 @@ const Home = () => {
     const data = await getCampaigns();
     setCampaigns(data);
     setIsLoading(false);
-
-    console.log(data);
   };
 
   React.useEffect(() => {
