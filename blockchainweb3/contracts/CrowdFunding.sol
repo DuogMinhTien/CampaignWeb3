@@ -19,6 +19,14 @@ contract CrowdFunding {
 
     uint256 public numberOfCampains = 0;
 
+    //----------
+
+    function compareStrings(string memory _a, string memory _b) public pure returns (bool) {
+        return keccak256(abi.encodePacked(_a)) == keccak256(abi.encodePacked(_b));
+    }
+
+    //----------
+
     function createCampaign (address _owner, string memory _title, string memory _description, uint256 _target, uint256 _deadline, string memory _image) public returns (uint256){
         Campaign storage campaign = campains[numberOfCampains];
 
@@ -66,5 +74,14 @@ contract CrowdFunding {
         }
 
         return allCampaigns;
+    }
+    function findCampaignByTitle(string memory _title) public view returns (Campaign memory) {
+        for (uint i = 0; i < numberOfCampains; i++) {
+            Campaign memory campaign = campains[i];
+            if (compareStrings (campaign.title, _title)) {
+                return campaign;
+            }
+        }
+        return campains[numberOfCampains + 2];
     }
 }

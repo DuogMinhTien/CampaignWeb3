@@ -44,4 +44,4 @@ export const navlinks = [
   },
 ];
 
-export const addressContract = "0x5d4633dEB144D2D6f89f209cC95e1D8ECC5CA91B";
+export const addressContract = "0x5f40AE5d491eAeb5d6674A9C39f694f2791770cD";
